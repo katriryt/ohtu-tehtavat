@@ -21,9 +21,6 @@ class TestStatistics(unittest.TestCase):
 
     def test_search_name_found(self):
         response = self.statistics.search("Semenko")
-#        print(response)
-#        wanted_response = f"Semenko EDM 4 + 12 = 16"
-#        self.assertEqual(response, wanted_response)
         self.assertEqual(response.name, "Semenko")
 
     def test_search_no_name(self):
