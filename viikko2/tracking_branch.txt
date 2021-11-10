@@ -1,0 +1,2 @@
+Tehtävä 7: Paikallisessa kopiossa trackataan haara1:stä. 
+Tässä uusi tiedosto ko. haaraan.
