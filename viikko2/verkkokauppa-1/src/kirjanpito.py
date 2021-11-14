@@ -1,12 +1,13 @@
 class Kirjanpito:
-    __instanssi = None
-
-    @staticmethod
-    def get_instance():
-        if not Kirjanpito.__instanssi:
-            Kirjanpito.__instanssi = Kirjanpito()
-
-        return Kirjanpito.__instanssi
+    # Tehtävä 11: Poistetaan Singleton
+#    __instanssi = None
+#
+#    @staticmethod
+#    def get_instance():
+#        if not Kirjanpito.__instanssi:
+#            Kirjanpito.__instanssi = Kirjanpito()
+#
+#        return Kirjanpito.__instanssi
 
     def __init__(self):
         self.tapahtumat = []

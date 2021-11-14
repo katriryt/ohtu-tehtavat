@@ -1,19 +1,21 @@
 from tuote import Tuote
-from kirjanpito import Kirjanpito
+#from kirjanpito import Kirjanpito
 
 
 class Varasto:
-    __instanssi = None
+    # tehtävä 11: Poistetaan Singleton
+#    __instanssi = None
+#
+#    @staticmethod
+#    def get_instance():
+#        if not Varasto.__instanssi:
+#            Varasto.__instanssi = Varasto()
+#
+#        return Varasto.__instanssi
 
-    @staticmethod
-    def get_instance():
-        if not Varasto.__instanssi:
-            Varasto.__instanssi = Varasto()
-
-        return Varasto.__instanssi
-
-    def __init__(self):
-        self._kirjanpito = Kirjanpito.get_instance()
+    def __init__(self, kirjanpito):
+#        self._kirjanpito = Kirjanpito.get_instance()
+        self._kirjanpito = kirjanpito
         self._saldot = {}
         self._alusta_tuotteet()
 
