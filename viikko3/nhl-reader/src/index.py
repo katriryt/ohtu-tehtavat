@@ -24,7 +24,9 @@ def main():
 
     print(f"Players from FIN {datetime.now()} \n")
 
-    for player in players:
+    sorted_players = sorted(players, key=lambda x: x.total_points, reverse=True)
+
+    for player in sorted_players:
         if player.nationality == 'FIN':
             print(player)
 
