@@ -47,12 +47,12 @@ class Ostoskori:
                     item.muuta_lukumaaraa(-1)
 
     def tyhjenna(self):
-        pass
         # tyhjentää ostoskorin
+        self.kori = []
 
     def ostokset(self):
         # palauttaa listan jossa on korissa olevat ostos-oliot
         # kukin ostos-olio siis kertoo mistä tuotteesta on kyse JA kuinka monta kappaletta kyseistä tuotetta korissa on
         if self.tavaroita_korissa() == 0: 
-            self.kori = []
+            self.tyhjenna()
         return self.kori
