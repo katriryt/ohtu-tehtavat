@@ -72,7 +72,7 @@ class TestOstoskori(unittest.TestCase):
  
         ostos = self.kori.ostokset()[0]
         nimi = ostos.tuotteen_nimi()
-        hinta = ostos.lukumaara() 
+        maara = ostos.lukumaara() 
 
         # testaa täällä, että palautetun listan ensimmäinen ostos on halutunkaltainen.
-        self.assertEqual(("Maito", 1), (nimi, hinta))
+        self.assertEqual(("Maito", 1), (nimi, maara))
