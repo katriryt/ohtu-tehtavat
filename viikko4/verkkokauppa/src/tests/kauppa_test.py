@@ -100,3 +100,47 @@ class TestKauppa(unittest.TestCase):
         self.kauppa.tilimaksu("pekka", "12345")
 
         self.pankki_mock.tilisiirto.assert_called_with("pekka", ANY, "12345", ANY, 10)
+
+    def test_aloita_asiointi_nollaa_edellisen_tiedot(self):
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(2)
+
+        self.kauppa.aloita_asiointi()
+
+        self.kauppa.tilimaksu("pekka", "12345")
+
+        self.pankki_mock.tilisiirto.assert_called_with("pekka", ANY, "12345", ANY, 0)
+
+    def test_aloita_asiointi_nollaa_edellisen_tiedot(self):
+        pankki_mock = Mock()
+        viitegeneraattori_mock = Mock(wraps=Viitegeneraattori()) 
+        viitegeneraattori_mock.uusi.side_effect = [1, 2, 3]
+        kauppa = Kauppa(varasto=self.varasto_mock, pankki=pankki_mock, viitegeneraattori=viitegeneraattori_mock)
+
+        kauppa.aloita_asiointi()
+        kauppa.lisaa_koriin(2)
+        kauppa.tilimaksu("pekka", "12345")
+
+        pankki_mock.tilisiirto.assert_called_with("pekka", 1, "12345", ANY, 10)
+
+        kauppa.aloita_asiointi()
+        kauppa.lisaa_koriin(2)
+        kauppa.tilimaksu("pekka", "12345")
+
+        pankki_mock.tilisiirto.assert_called_with("pekka", 2, "12345", ANY, 10)
+
+        kauppa.aloita_asiointi()
+        kauppa.lisaa_koriin(2)
+        kauppa.tilimaksu("pekka", "12345")
+
+        pankki_mock.tilisiirto.assert_called_with("pekka", 3, "12345", ANY, 10)
+
+    def test_poista_korista_poistaa_korista(self):
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.lisaa_koriin(2)
+        self.kauppa.poista_korista(1)
+
+        self.kauppa.tilimaksu("pekka", "12345")
+
+        self.pankki_mock.tilisiirto.assert_called_with("pekka", ANY, "12345", ANY, 10)
