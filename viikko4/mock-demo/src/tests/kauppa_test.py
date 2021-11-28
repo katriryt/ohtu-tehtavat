@@ -35,6 +35,7 @@ class TestKauppa(unittest.TestCase):
 
         # katsotaan, että ensimmäisen parametrin arvo on oikea
         pankki_mock.maksa.assert_called_with("1111", ANY, ANY)
+#        pankki_mock.maksa.assert_called_with("11", ANY, ANY) # rikottu testi
 
     def test_kutsutaan_pankkia_oikealla_tilinumerolla_ja_summalla(self):
         pankki_mock = Mock()
@@ -66,6 +67,8 @@ class TestKauppa(unittest.TestCase):
 
         # katsotaan, että kolmannen parametrin arvo on oikea
         pankki_mock.maksa.assert_called_with(ANY, ANY, 55)
+#        pankki_mock.maksa.assert_called_with(ANY, ANY, 1000) # rikottu testi
+
 
     def test_pyydetaan_uusi_viite_jokaiseen_maksuun(self):
         pankki_mock = Mock()
@@ -86,6 +89,7 @@ class TestKauppa(unittest.TestCase):
 
         # tarkistetaan että tässä vaiheessa viitegeneraattorin metodia uusi on kutsuttu kaksi kertaa
         self.assertEqual(viitegeneraattori_mock.uusi.call_count, 2)
+#        self.assertEqual(viitegeneraattori_mock.uusi.call_count, 1) #rikottu testi
 
         kauppa.aloita_ostokset()
         kauppa.lisaa_ostos(3)
@@ -123,3 +127,4 @@ class TestKauppa(unittest.TestCase):
 
         # ...ja kolmas viite
         pankki_mock.maksa.assert_called_with(ANY, ANY, 3)
+#        pankki_mock.maksa.assert_called_with(ANY, ANY, 16) # rikottu testi
