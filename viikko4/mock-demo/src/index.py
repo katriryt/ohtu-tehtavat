@@ -21,6 +21,7 @@ def main():
     kumpula_bier_shop.maksa("4444-1111")
 
     # tehtävä 7: tagi testi 1
+    # tehtävä 7: tagi testi 2
 
 if __name__ == "__main__":
     main()
