@@ -22,6 +22,7 @@ def main():
 
     # tehtävä 7: tagi testi 1
     # tehtävä 7: tagi testi 2
+    # tehtävä 7: tagi testi 3
 
 if __name__ == "__main__":
     main()
