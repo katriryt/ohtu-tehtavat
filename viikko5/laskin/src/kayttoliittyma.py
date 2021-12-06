@@ -43,7 +43,7 @@ class Kumoa:
        self._arvo = arvo 
     
     def suorita(self):
-        pass
+        self._sovellus.kumoa()
 
 class Kayttoliittyma:
     def __init__(self, sovellus, root):
