@@ -2,7 +2,6 @@ from enum import Enum
 from tkinter import ttk, constants, StringVar
 
 class Komento(Enum):
-    # ei muuteta
     SUMMA = 1
     EROTUS = 2
     NOLLAUS = 3
@@ -51,11 +50,7 @@ class Kayttoliittyma:
         self._sovellus = sovellus
         self._root = root
 
-        # lisätään kirjasto eri funktioihin
-        # implementoi Summa, Erotus, Nollaus, Kumoa (hold) luokat
-        # luo sovelluslogiikka-olio
         self._komennot = {
-#            Komento.SUMMA: Summa(sovelluslogiikka, self._lue_syote), # annettu
             Komento.SUMMA: Summa(self._sovellus, self._lue_syote),
             Komento.EROTUS: Erotus(self._sovellus, self._lue_syote),
             Komento.NOLLAUS: Nollaus(self._sovellus, self._lue_syote),
@@ -63,7 +58,6 @@ class Kayttoliittyma:
         }
 
     def kaynnista(self):
-        # ei kosketa tähän
         self._tulos_var = StringVar()
         self._tulos_var.set(self._sovellus.tulos)
         self._syote_kentta = ttk.Entry(master=self._root)
@@ -104,53 +98,18 @@ class Kayttoliittyma:
         self._kumoa_painike.grid(row=2, column=3)
 
     def _lue_syote(self):
-        # lisätty uusi
-#        print(self._syote_kentta.get())
         return self._syote_kentta.get()
 
     def _suorita_komento(self, komento):
-        # lisätty valmis uusi
         komento_olio = self._komennot[komento]
-        komento_olio.suorita() # tarvitaan tämän niminen metodi
+        komento_olio.suorita()
         self._kumoa_painike["state"] = constants.NORMAL
 
-#        if self._sovelluslogiikka.tulos == 0: # tarvitaan tämän niminen metodi
         if self._sovellus.tulos == 0:
             self._nollaus_painike["state"] = constants.DISABLED
         else:
             self._nollaus_painike["state"] = constants.NORMAL
 
         self._syote_kentta.delete(0, constants.END)
-#        self._tulos_var.set(self._sovelluslogiikka.tulos) # annettu
         self._tulos_var.set(self._sovellus.tulos)
 
-
-#    def _suorita_komento(self, komento):
-#        # refaktoroi tämä funktio
-#        arvo = 0
-#
-#        try:
-#            arvo = int(self._syote_kentta.get())
-#        except Exception:
-#            pass
-#
-#        if komento == Komento.SUMMA:
-#            self._sovellus.plus(arvo)
-#        elif komento == Komento.EROTUS:
-#            self._sovellus.miinus(arvo)
-#        elif komento == Komento.NOLLAUS:
-#            self._sovellus.nollaa()
-#        elif komento == Komento.KUMOA:
-#            pass
-#
-#        self._kumoa_painike["state"] = constants.NORMAL
-#
-#        if self._sovellus.tulos == 0:
-#            self._nollaus_painike["state"] = constants.DISABLED
-#        else:
-#            self._nollaus_painike["state"] = constants.NORMAL
-#
-#        self._syote_kentta.delete(0, constants.END)
-#        self._tulos_var.set(self._sovellus.tulos)
-#
-#
