@@ -113,3 +113,4 @@ class Kayttoliittyma:
         self._syote_kentta.delete(0, constants.END)
         self._tulos_var.set(self._sovellus.tulos)
 
+# Viikko 6: Tehtävä 1: tehdään jotakin työtä main branchissa.
