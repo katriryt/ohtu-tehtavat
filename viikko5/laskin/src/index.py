@@ -16,3 +16,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Viikko 6: tehtävä 1: haara luotu. ensimmäinen vaihe: muutoksia tehty haarassa
