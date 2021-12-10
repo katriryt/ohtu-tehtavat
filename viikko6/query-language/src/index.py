@@ -74,6 +74,39 @@ def main():
         .build()
     )
 
+    # Tehtävä 5. Laajennettu kyselyrakentaja, toimii apumuuttujien kanssa ja ilman
+#    m1 = (
+#    query
+#        .playsIn("PHI")
+#        .hasAtLeast(10, "assists")
+#        .hasFewerThan(5, "goals")
+#        .build()
+#    )
+#
+#    m2 = (
+#    query
+#        .playsIn("EDM")
+#        .hasAtLeast(40, "points")
+#        .build()
+#    )
+
+#    matcher = m2
+#    matcher = query.oneOf(m1, m2).build()
+
+    matcher = (
+        query
+            .oneOf(
+            query.playsIn("PHI")
+                .hasAtLeast(10, "assists")
+                .hasFewerThan(5, "goals")
+                .build(),
+            query.playsIn("EDM")
+                .hasAtLeast(40, "points")
+                .build()
+            )
+            .build()
+        )
+
     for player in stats.matches(matcher):
         print(player)
 
