@@ -1,7 +1,6 @@
 from tuomari import Tuomari
 
 class KPS:
-    # Yliluokka, jonne laitetaan pelien yhteiset toiminnot
     def pelaa(self):
         tuomari = Tuomari()
 
@@ -12,9 +11,6 @@ class KPS:
             tuomari.kirjaa_siirto(ekan_siirto, tokan_siirto)
             print(tuomari)
 
-#            ekan_siirto = input("Ensimmäisen pelaajan siirto: ")
-#            tokan_siirto = input("Toisen pelaajan siirto: ") # HUOM! TÄMÄN VOISI LAITTA KIRJASTOKSI, JOS HALUTAAN VARIOIDAN VIESTIÄ
-
             ekan_siirto = self._ensimmaisen_siirto()
             tokan_siirto = self._toisen_siirto(ekan_siirto)
 
@@ -24,7 +20,6 @@ class KPS:
     def _ensimmaisen_siirto(self):
       return input("Ensimmäisen pelaajan siirto: ")
 
-    # tämän metodin toteutus vaihtelee eri pelityypeissä
     def _toisen_siirto(self, ensimmaisen_siirto):
         # metodin oletustoteutus
         return "k"
