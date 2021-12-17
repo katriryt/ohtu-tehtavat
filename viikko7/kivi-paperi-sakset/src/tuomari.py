@@ -26,6 +26,7 @@ class Tuomari:
 
     # sisäinen metodi joka tarkastaa voittaako eka pelaaja tokan
     def _eka_voittaa(self, eka, toka):
+        # OMA: jos tätä luokkaa jotenkin putsaa, tälle voi kokeilla kirjastoa. muuten näyttää siistiltä
         if eka == "k" and toka == "s":
             return True
         elif eka == "s" and toka == "p":
