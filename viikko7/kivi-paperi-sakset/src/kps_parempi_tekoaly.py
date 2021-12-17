@@ -1,6 +1,7 @@
 from tuomari import Tuomari
 from tekoaly_parannettu import TekoalyParannettu
 
+# Vko 7, teht 2: Haarassa tehdään muutoksia, jotka committoidaan.
 
 class KPSParempiTekoaly:
     def pelaa(self):
