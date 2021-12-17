@@ -1,6 +1,7 @@
 from tuomari import Tuomari
 from tekoaly import Tekoaly
 
+# Viikko 7: Tehtävä 1: Muutos toisessa haarassa
 
 class KPSTekoaly:
     def pelaa(self):
